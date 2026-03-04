@@ -1,64 +1,128 @@
 :root {
     --green: rgba(61,122,107,1);
-  }
-main{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    --dark-bg: #414141;
+    --grey-border: #808080;
+}
+
+/* Structure Globale */
+body {
+    background-color: var(--dark-bg);
+    margin: 0;
+    font-family: sans-serif;
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
     justify-content: space-around;
     padding: 5%;
 }
 
-article{
+#filtre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Composant Article / Carte */
+article {
     width: 350px;
-    border-radius: 20px;
-    border: 10px solid grey;  /* #3d7a6bb3 */
-    background-color: grey;
-    overflow: hidden;
     margin: 10px;
-    -webkit-box-shadow: -1px 2px 13px 0px rgba(0,0,0,0.74); 
-    box-shadow: -1px 2px 13px 0px rgba(0,0,0,0.74); 
-    
+    border-radius: 20px;
+    border: 10px solid var(--grey-border);
+    background-color: var(--grey-border);
+    overflow: hidden;
+    box-shadow: -1px 2px 13px 0px rgba(0,0,0,0.74);
 }
 
-picture{
-    display: block; 
-    background-color: rgba(0,0,0,0.25);   
+figure {
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* Reset des marges par défaut */
 }
 
+picture {
+    display: block;
+    background-color: rgba(0,0,0,0.25);
+}
 
-article img{
+article img {
     width: 80%;
     margin: auto;
     display: block;
 }
 
-figcaption{
-    background-color: rgba(255,255,255,0.5); /* #3d7a6b80 */
+figcaption {
+    background-color: rgba(255,255,255,0.5);
     position: relative;
+    padding: 10px;
 }
 
-ol{
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+ol {
     list-style: none;
     margin: 0;
-    padding: 15px
+    padding: 15px;
 }
 
-h2{
-    text-align: center;
-}
-
-figure{
-    display: flex;
-    flex-direction: column;
-}
-
-.types{
-    background-color: #000;
+.types {
+    background-color: #000; /* Le background noir s'affichera bien ici */
     color: #fff;
-    padding : 5px 10px;
+    padding: 5px 10px;
     position: absolute;
-    top : -10px;
-    left : 10px;
+    top: -15px;
+    left: 10px;
     border-radius: 5px;
+    z-index: 10;
+}
+
+/* Style du Select Custom */
+.select {
+    position: relative;
+    width: 350px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    overflow: hidden;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: #f9f9f9;
+    color: #555555;
+    font-size: 1.2em;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.select::after {
+    content: '\276F';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    pointer-events: none;
+    transform: rotate(90deg);
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.select:hover::after {
+    color: #fa6141;
 }
